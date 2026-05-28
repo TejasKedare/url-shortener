@@ -23,7 +23,7 @@ const shortenUrl = asyncHandler(async (req, res) => {
     if (newUrl.shortCode) {
         return res.status(201).json({
             success: true,
-            data: { url: `http://localhost:8080/${newUrl.shortCode}` },
+            data: { url: `${process.env.REDIRECTION_URL}/${newUrl.shortCode}` },
             message: "Your Url is Shortened"
         })
     }
@@ -38,7 +38,6 @@ const redirectUrl = asyncHandler(async (req, res) => {
             message: "Invalid Url"
         })
     }
-
 
     const url = await Url.findOneAndUpdate(
         {shortCode},
