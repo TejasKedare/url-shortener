@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { PlanConstants, UserConstants } from "../constants/user.constants";
+import { PlanConstants, UserConstants } from "../constants/user.constants.js";
 
 
 const userSchema = new mongoose.Schema({
@@ -35,11 +35,13 @@ const userSchema = new mongoose.Schema({
     },
 
     firstName: {
-        type: String
+        type: String,
+        required: false
     },
 
     lastName: {
-        type: String
+        type: String,
+        required: false
     },
 
     isEmailVerified: {
