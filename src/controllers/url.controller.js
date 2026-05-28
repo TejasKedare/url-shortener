@@ -31,18 +31,18 @@ const shortenUrl = asyncHandler(async (req, res) => {
 
 const redirectUrl = asyncHandler(async (req, res) => {
     const { shortCode } = req.params
-  
+
     if (!shortCode) {
-       return res.status(400).json({
+        return res.status(400).json({
             success: false,
             message: "Invalid Url"
         })
     }
 
     const url = await Url.findOneAndUpdate(
-        {shortCode},
-        {$inc: {clicks: 1}},
-        {new: true}
+        { shortCode },
+        { $inc: { clicks: 1 } },
+        { new: true }
     )
 
     return res.redirect(302, url.originalUrl)
