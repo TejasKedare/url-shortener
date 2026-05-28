@@ -1,10 +1,10 @@
 import dotenv from 'dotenv';
+dotenv.config()
+
 import app from "./app.js";
 import { connectToDb } from "./config/db.config.js";
 
 const PORT = process.env.PORT || 8080
-
-dotenv.config()
 
 app.get('/', (req, res) => {
     res.end('This is Url Shortener Api')
