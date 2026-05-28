@@ -8,15 +8,14 @@ const urlSchema = mongoose.Schema({
     },
     shortCode: {
         type: String,
-        trim: true
+        trim: true,
+        unique: true,
+        index: true
     },
     clicks: {
         type: Number,
-    },
-    createdAt: {
-        type: Date,
-        required: true,
-    },
+        default: 0
+    }
 }, {
     timestamps: true
 })
