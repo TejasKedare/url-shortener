@@ -17,6 +17,8 @@ const urlSchema = mongoose.Schema({
         type: Date,
         required: true,
     },
+}, {
+    timestamps: true
 })
 
 export const Url = mongoose.model("Url", urlSchema)
