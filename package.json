@@ -7,8 +7,17 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
+    "dev": "node --watch src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+    "keywords": [
+    "nodejs",
+    "express",
+    "mongodb",
+    "mongoose",
+    "rest-api",
+    "backend"
+  ],
   "dependencies": {
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
