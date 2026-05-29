@@ -51,7 +51,7 @@ const loginUser = asyncHandler(async (req, res) => {
 })
 
 const updatePlan = asyncHandler(async (req, res) => {
-    const { userId, plan } = req.params
+    const { userId, plan } = req.body
     if (!userId) {
         return res.status(401).json({
             success: false,
@@ -66,7 +66,24 @@ const updatePlan = asyncHandler(async (req, res) => {
         message: "Plan Updated Successfully",
         data: { user: user }
     })
-
 })
 
-export { registerUser, loginUser, updatePlan }
+const updateRole = asyncHandler(async (req, res) => {
+    const { userId, role } = req.body
+    if (!userId) {
+        return res.status(401).json({
+            success: false,
+            message: "Invalid userId",
+        })
+    }
+
+    const user = await User.findByIdAndUpdate(userId, { plan: role }, {new: true})
+
+    return res.status(200).json({
+        success: true,
+        message: "Role Updated Successfully",
+        data: { user: user }
+    })
+})
+
+export { registerUser, loginUser, updatePlan, updateRole }
